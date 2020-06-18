@@ -1,3 +1,4 @@
+```
 name: app
 description: A new Flutter application.
 
@@ -24,3 +25,4 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+```  
