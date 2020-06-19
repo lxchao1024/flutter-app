@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   english_words: ^3.1.0
   dio: ^3.0.9
+  flutter_swiper: ^1.0.6
 
 dev_dependencies:
   flutter_test:
