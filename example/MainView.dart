@@ -20,6 +20,13 @@ class MainState extends State<MainView> {
     MemberPage()
   ];
 
+  final List titles = [
+    new Text('首页'),
+    new Text('分类'),
+    new Text('购物车'),
+    new Text('会员中心')
+  ];
+
   final List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.home),
@@ -41,21 +48,22 @@ class MainState extends State<MainView> {
 
   int currentIndex = 0;
   var currentPage;
+  var titleView;
 
   @override
   void initState() {
     currentPage = tabBarList[currentIndex];
+    titleView = titles[currentIndex];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return new MaterialApp(
       title: 'Hello',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('底部导航条'),
+          title: titleView,
           centerTitle: true,
         ),
         body: currentPage,
@@ -67,6 +75,7 @@ class MainState extends State<MainView> {
             setState(() {
               currentIndex = index;
               currentPage = tabBarList[currentIndex];
+              titleView = titles[currentIndex];
             });
           },
         ),
