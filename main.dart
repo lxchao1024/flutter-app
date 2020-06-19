@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'RandomListView.dart';
 import 'InitAppCode.dart';
+import 'example/MainView.dart';
 
 //初始化项目生成的代码块
 //void main() => runApp(MyApp());
 
 //自己定义的代码块
-void main() => runApp(RandomListApp());
+void main() => runApp(MainView());
 
 //Stateless widgets 是不可变的, 这意味着它们的属性不能改变 - 所有的值都是最终的.
 class App extends StatelessWidget {
