@@ -10,12 +10,14 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
-  var datas;
+  List datas = [];
 
   @override
   void initState() {
     getHomeBanner().then((value) {
-      print(value);
+      setState(() {
+        datas = value['data'];
+      });
     });
     super.initState();
   }
@@ -25,22 +27,19 @@ class HomePageState extends State<HomePage> {
     return new Column(
       children: <Widget>[
         new Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        width: MediaQuery.of(context).size.width,
         height: 200.0,
         child: Swiper(
-          itemCount: 3,
+          itemCount: datas.length,
           itemBuilder: _swiperBuilder,
           autoplay: true,
           //是否显示分页按钮
-          control: new SwiperControl(),
+//          control: new SwiperControl(),
           scrollDirection: Axis.horizontal,
           pagination: new SwiperPagination(
             builder: new DotSwiperPaginationBuilder(
-              color: Colors.black54,
-              activeColor: Colors.white
+              color: Colors.red,
+              activeColor: Colors.deepPurple
             )
           ),
         ),
@@ -49,6 +48,6 @@ class HomePageState extends State<HomePage> {
   }
 
   Widget _swiperBuilder(BuildContext context, int index) {
-    return Image.network('http://via.placeholder.com/350x150', fit: BoxFit.fill);
+    return Image.network(datas[index]['imagePath'], fit: BoxFit.fill);
   }
 }
